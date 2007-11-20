@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="switchTransaccionalSincronico"
+    targetNamespace="http://enterprise.netbeans.org/bpel/BpelSwitchTransaccional/switchTransaccionalSincronico"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/BpelSwitchTransaccional/switchTransaccionalSincronico" xmlns:ns1="http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico" xmlns:ns2="http://enterprise.netbeans.org/bpel/RecuperaAtributosServicioWrapper" xmlns:ns3="http://enterprise.netbeans.org/bpel/AdministraLogSwitchWrapper" xmlns:ns4="http://enterprise.netbeans.org/bpel/DeterminaConfiguracionServicioWrapper" xmlns:ns5="http://st.org/" xmlns:ns0="http://xml.netbeans.org/schema/switchTransaccionalSincrónico" xmlns:ns6="http://enterprise.netbeans.org/bpel/AdministraLogSwitchWrapperTmp">
+    <import namespace="http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico" location="switchTransaccionalSincronico.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/RecuperaAtributosServicioWrapper" location="Partners/RecuperaAtributosServicioService/RecuperaAtributosServicioWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://st.org/" location="Partners/RecuperaAtributosServicioService/RecuperaAtributosServicio.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/AdministraLogSwitchWrapper" location="Partners/AdministraLogSwitch/AdministraLogSwitchWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://st.org/" location="Partners/AdministraLogSwitch/AdministraLogSwitch.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/DeterminaConfiguracionServicioWrapper" location="Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicioWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://st.org/" location="Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="administraLog" partnerLinkType="ns3:AdministraLogSwitchLinkType2" partnerRole="AdministraLogSwitchRole"/>
+        <partnerLink name="configuracion" partnerLinkType="ns4:DeterminaConfiguracionServicioLinkType" partnerRole="DeterminaConfiguracionServicioRole"/>
+        <partnerLink name="RecuperaAtributos" partnerLinkType="ns2:RecuperaAtributosServicioLinkType" partnerRole="RecuperaAtributosServicioRole"/>
+        <partnerLink name="solicitanteServicio" partnerLinkType="ns1:switchTransaccionalSincronico1" myRole="switchTransaccionalSincronicoPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="RegistrarEventoOut2" messageType="ns5:RegistrarEventoResponse"/>
+        <variable name="RegistrarEventoIn2" messageType="ns5:RegistrarEvento"/>
+        <variable name="RegistrarEventoOut1" messageType="ns5:RegistrarEventoResponse"/>
+        <variable name="RegistrarEventoIn1" messageType="ns5:RegistrarEvento"/>
+        <variable name="RegistrarEventoOut" messageType="ns5:RegistrarEventoResponse"/>
+        <variable name="RegistrarEventoIn" messageType="ns5:RegistrarEvento"/>
+        <variable name="RegistrarConfiguracionOut" messageType="ns5:RegistrarConfiguracionResponse"/>
+        <variable name="RegistrarConfiguracionIn" messageType="ns5:RegistrarConfiguracion"/>
+        <variable name="RegistrarRespuestaIn1" messageType="ns5:registrarRespuesta"/>
+        <variable name="RegistrarAtributosIn1" messageType="ns5:registrarAtributos"/>
+        <variable name="RegistrarRespuestaOut" messageType="ns5:registrarRespuestaResponse"/>
+        <variable name="RegistrarRespuestaIn" messageType="ns5:registrarRespuesta"/>
+        <variable name="RegistrarAtributosOut" messageType="ns5:registrarAtributosResponse"/>
+        <variable name="RegistrarAtributosIn" messageType="ns5:registrarAtributos"/>
+        <variable name="EjecutaBPELConfiguracionOut" messageType="ns5:ejecutaBPELConfiguracionResponse"/>
+        <variable name="EjecutaBPELConfiguracionIn" messageType="ns5:ejecutaBPELConfiguracion"/>
+        <variable name="DeterminaConfiguracionOut" messageType="ns5:determinaConfiguracionResponse"/>
+        <variable name="DeterminaConfiguracionIn" messageType="ns5:determinaConfiguracion"/>
+        <variable name="ObtenerTIcketServicioOut" messageType="ns5:ObtenerTIcketServicioResponse"/>
+        <variable name="ObtenerTIcketServicioIn" messageType="ns5:ObtenerTIcketServicio"/>
+        <variable name="RecuperaAtributosOut" messageType="ns5:recuperaAtributosResponse"/>
+        <variable name="RecuperaAtributosIn" messageType="ns5:recuperaAtributos"/>
+        <variable name="SwitchTransaccionalSincronicoOperationOut" messageType="ns1:switchTransaccionalSincronicoOperationReply"/>
+        <variable name="SwitchTransaccionalSincronicoOperationIn" messageType="ns1:switchTransaccionalSincronicoOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="solicitanteServicio" operation="switchTransaccionalSincronicoOperation" portType="ns1:switchTransaccionalSincronicoPortType" variable="SwitchTransaccionalSincronicoOperationIn"/>
+        <flow name="Flow1">
+            <sequence name="Sequence1">
+                <assign name="Assign1">
+                    <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:codigo_servicio</from>
+                        <to>$RecuperaAtributosIn.parameters/codigo_servicio</to>
+                    </copy>
+                    <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:mensaje</from>
+                        <to>$RecuperaAtributosIn.parameters/mensaje</to>
+                    </copy>
+                </assign>
+                <invoke name="recuperaAtributos" partnerLink="RecuperaAtributos" operation="recuperaAtributos" portType="ns5:RecuperaAtributosServicio" inputVariable="RecuperaAtributosIn" outputVariable="RecuperaAtributosOut"/>
+            </sequence>
+            <sequence name="Sequence2">
+                <assign name="Assign2">
+                    <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:codigo_servicio</from>
+                        <to>$ObtenerTIcketServicioIn.parameters/p_codigo_servicio</to>
+                    </copy>
+                    <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:mensaje</from>
+                        <to>$ObtenerTIcketServicioIn.parameters/p_mensaje</to>
+                    </copy>
+                </assign>
+                <invoke name="ObtieneTicket" partnerLink="administraLog" operation="ObtenerTIcketServicio" portType="ns5:AdministraLogSwitch" inputVariable="ObtenerTIcketServicioIn" outputVariable="ObtenerTIcketServicioOut"/>
+            </sequence>
+        </flow>
+        <flow name="Flow2">
+            <sequence name="Sequence3">
+                <assign name="Assign3">
+                    <copy>
+                        <from>$RecuperaAtributosOut.parameters/return</from>
+                            <to>$DeterminaConfiguracionIn.parameters/atributos</to>
+                    </copy>
+                </assign>
+                <invoke name="determinaConfig" partnerLink="configuracion" operation="determinaConfiguracion" portType="ns5:DeterminaConfiguracionServicio" inputVariable="DeterminaConfiguracionIn" outputVariable="DeterminaConfiguracionOut"/>
+            </sequence>
+            <sequence name="Sequence5">
+                <assign name="Assign6">
+                    <copy>
+                        <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                        <to>$RegistrarAtributosIn1.parameters/p_ticket</to>
+                    </copy>
+                    <copy>
+                        <from>$RecuperaAtributosOut.parameters/return</from>
+                        <to>$RegistrarAtributosIn1.parameters/p_atributos</to>
+                    </copy>
+                </assign>
+                <invoke name="registraAtributos" partnerLink="administraLog" operation="registrarAtributos" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarAtributosIn1" outputVariable="RegistrarAtributosOut"/>
+            </sequence>
+        </flow>
+        <flow name="Flow4">
+            <sequence name="Sequence7">
+                <assign name="Assign4">
+                    <copy>
+                        <from>$DeterminaConfiguracionOut.parameters/return</from>
+                            <to>$EjecutaBPELConfiguracionIn.parameters/p_configuracion_id</to>
+                    </copy>
+                        <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:codigo_servicio</from>
+                            <to>$EjecutaBPELConfiguracionIn.parameters/codigo_servicio</to>
+                    </copy>
+                        <copy>
+                        <from>$SwitchTransaccionalSincronicoOperationIn.requerimiento/ns0:mensaje</from>
+                            <to>$EjecutaBPELConfiguracionIn.parameters/p_mensaje</to>
+                    </copy>
+                </assign>
+                <invoke name="ejecutaConfiguracion" partnerLink="configuracion" operation="ejecutaBPELConfiguracion" portType="ns5:DeterminaConfiguracionServicio" inputVariable="EjecutaBPELConfiguracionIn" outputVariable="EjecutaBPELConfiguracionOut"/>
+            </sequence>
+            <sequence name="Sequence8">
+                <assign name="Assign8">
+                    <copy>
+                        <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                        <to>$RegistrarConfiguracionIn.parameters/p_ticket</to>
+                    </copy>
+                    <copy>
+                        <from>$DeterminaConfiguracionOut.parameters/return</from>
+                        <to>$RegistrarConfiguracionIn.parameters/p_configuracion</to>
+                    </copy>
+                </assign>
+                <invoke name="registraConfiguracion" partnerLink="administraLog" operation="RegistrarConfiguracion" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarConfiguracionIn" outputVariable="RegistrarConfiguracionOut"/>
+            </sequence>
+            <sequence name="Sequence9">
+                <assign name="Assign9">
+                    <copy>
+                        <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                        <to>$RegistrarEventoIn.parameters/p_ticket</to>
+                    </copy>
+                    <copy>
+                        <from>
+                            <literal>despacha bpel</literal>
+                        </from>
+                        <to>$RegistrarEventoIn.parameters/p_evento</to>
+                    </copy>
+                </assign>
+                <invoke name="registraInvocacionBPEL" partnerLink="administraLog" operation="RegistrarEvento" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarEventoIn" outputVariable="RegistrarEventoOut"/>
+            </sequence>
+        </flow>
+        <assign name="Assign10">
+            <copy>
+                <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                <to>$RegistrarEventoIn1.parameters/p_ticket</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>ensambla respuesta</literal>
+                </from>
+                <to>$RegistrarEventoIn1.parameters/p_evento</to>
+            </copy>
+        </assign>
+        <invoke name="registraEnsambleRespuesta" partnerLink="administraLog" operation="RegistrarEvento" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarEventoIn1" outputVariable="RegistrarEventoOut1"/>
+        <flow name="Flow3">
+            <sequence name="Sequence4">
+                <assign name="Assign5">
+                    <copy>
+                            <from>$EjecutaBPELConfiguracionOut.parameters/return</from>
+                                <to>$SwitchTransaccionalSincronicoOperationOut.respuesta/ns0:return</to>
+                        </copy>
+                </assign>
+                <reply name="Reply1" partnerLink="solicitanteServicio" operation="switchTransaccionalSincronicoOperation" portType="ns1:switchTransaccionalSincronicoPortType" variable="SwitchTransaccionalSincronicoOperationOut"/>
+            </sequence>
+            <sequence name="Sequence6">
+                <assign name="Assign7">
+                    <copy>
+                        <from>$EjecutaBPELConfiguracionOut.parameters/return</from>
+                        <to>$RegistrarRespuestaIn1.parameters/p_respuesta</to>
+                    </copy>
+                    <copy>
+                        <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                        <to>$RegistrarRespuestaIn1.parameters/p_ticket</to>
+                    </copy>
+                </assign>
+                <invoke name="registraRespuesta" partnerLink="administraLog" operation="registrarRespuesta" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarRespuestaIn1" outputVariable="RegistrarRespuestaOut"/>
+            </sequence>
+            <sequence name="Sequence10">
+                <assign name="Assign11">
+                    <copy>
+                        <from>$ObtenerTIcketServicioOut.parameters/return</from>
+                        <to>$RegistrarEventoIn2.parameters/p_ticket</to>
+                    </copy>
+                    <copy>
+                        <from>
+                            <literal>entrega respuesta</literal>
+                        </from>
+                        <to>$RegistrarEventoIn2.parameters/p_evento</to>
+                    </copy>
+                </assign>
+                <invoke name="registraEntrega" partnerLink="administraLog" operation="RegistrarEvento" portType="ns5:AdministraLogSwitch" inputVariable="RegistrarEventoIn2" outputVariable="RegistrarEventoOut2"/>
+            </sequence>
+        </flow>
+    </sequence>
+</process>
