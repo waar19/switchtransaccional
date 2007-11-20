@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="RecuperaAtributosServicioService">
+      <implementation-class>org.st.RecuperaAtributosServicio</implementation-class>
+    </service>
+    <service name="AdministraLogSwitch">
+      <implementation-class>org.st.AdministraLogSwitch</implementation-class>
+    </service>
+    <service name="DeterminaConfiguracionServicioService">
+      <implementation-class>org.st.DeterminaConfiguracionServicio</implementation-class>
+    </service>
+  </services>
+  <clients>
+  </clients>
+</jax-ws>
