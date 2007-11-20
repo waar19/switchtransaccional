@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE XMI SYSTEM "/home/demian/.netbeans/5.5/.uml/config/UML_2.0EMBT.dtd"> --><XMI xmlns:UML="omg.org/UML/1.4" xmi.version="2.0"> <XMI.header> <XMI.metamodel xmi.name="UML" xmi.version="1.4"/> <XMI.documentation> <XMI.exporter> Embarcadero's Describe </XMI.exporter> <XMI.exporterVersion> 6.0 </XMI.exporterVersion> </XMI.documentation> </XMI.header> <XMI.content> <UML:Project xmi.id="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" mode="Analysis" defaultLanguage="UML" projVersion="6.1.4.837" name="SwitchTransaccionalUML"><UML:Element.ownedElement>
+<UML:Actor xmi.id="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B" name="Consumidor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" specialization="DCE.F28D3445-FF2A-76CA-0409-ED948C07BDA4 DCE.BD3B17C6-B249-550C-8807-969628BDA6DD" associationEnd="DCE.75BB4BD0-59AB-04F6-3689-97BFF2D85FCF DCE.3D651271-7E7E-A853-31C4-B9B2A9AFA7F1 DCE.65206942-2702-0F3A-1650-E9A961F3DB70 DCE.496C7472-DB53-F894-7B70-25A4962189CB DCE.A30607DC-5847-375A-B8E0-401718DD177C DCE.3DF1AB78-D086-BAAD-6C44-E105CAA4865E"><UML:Element.presentation>
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.FBFC969D-8C71-0391-1A5E-EC4699685DA8" owner="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B" name="documentation">
+<UML:TaggedValue.dataValue>El &lt;b&gt;Consumidor &lt;/b&gt;es el cliente del producto. Su interes es el de 
+    solicitar servicios a un proveedor.
+
+La ventaja de hacerlo utilizando el Switch Transaccional es que el mismo se 
+    independiza y se abstrae del medio e infraestructura para poder acceder a 
+    dicho proveedor. El switch Transaccional prove transaparencia en el uso de 
+    servicios de los consumidors.
+
+Así mismo el Switch Transaccional facilita la operación del cosumidor en el 
+    caso de que el servicio solicitado requiera de la intervención de mas de 
+    un proveedor, agilizando y haciendo mas sencilla la resulución de dicho 
+    servicio.</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Actor>
+
+
+<UML:UseCase xmi.id="DCE.25E911AA-4542-5665-966C-B4EF293D36FA" name="Solicitar servicio asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.19AC2BBB-9EF1-406E-0FA3-30F54DFEBAA3 DCE.01C244C7-397E-930C-E1B2-19DD9AF0CAD2"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.83036981-1A45-BE26-0B45-9E18D289C4B9" name="Solicitar servicio sincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.4EA7FC65-D09E-9EE8-6E4C-FA711FEEF378 DCE.B420C12B-B300-2B1E-7C90-D13A40EF2597"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+
+
+<UML:UseCase xmi.id="DCE.E64EA402-2ACD-9452-3123-2891C442DB0A" name="Recuperar respuesta de servicio asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.7F936272-9BE8-22F8-A8AC-E363A88FC1B1 DCE.D73C5C2F-4100-675E-56D5-6E812286D7AF"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.190B5FCB-80E5-9AAB-F98C-5188BC4BC370" name="Enviar mensaje sincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.17771F5F-5DE4-852B-C720-D57AEF338A6B DCE.E147882A-F83E-A95C-ABA2-52236499D6A5"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.E9ECD2ED-43F0-1218-EBA3-CF07DB1F31AD" name="Enviar mensaje asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.1CA147AF-A170-1BF2-559B-A98D33611211 DCE.F81847BC-AB4D-CD0C-10B2-4D34AD038219" isFinal="true" isLeaf="true"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.0DDA1ECC-8FCB-4723-4416-3C39B7630F17" name="Recuperar respuesta a mensaje asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.3B65765F-35BB-C72F-2EA3-818C47BEF9E6 DCE.B9E625F1-69C4-16F1-2B4A-347EF9DE1CBF"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase>
+
+
+
+
+
+
+<UML:Association xmi.id="DCE.1D0C3693-0F6F-A98E-D952-9CA709BD55FA" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.75BB4BD0-59AB-04F6-3689-97BFF2D85FCF" visibility="private" association="DCE.1D0C3693-0F6F-A98E-D952-9CA709BD55FA" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.A1427ACA-50B1-CAD8-C93A-DA0D5FD234EC"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.E147882A-F83E-A95C-ABA2-52236499D6A5" visibility="private" association="DCE.1D0C3693-0F6F-A98E-D952-9CA709BD55FA" type="DCE.190B5FCB-80E5-9AAB-F98C-5188BC4BC370"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.919209B3-0A32-81E9-F174-A742A7433633"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.A720A656-33C2-DF11-0A8D-AA1D979109BD" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.3D651271-7E7E-A853-31C4-B9B2A9AFA7F1" visibility="private" association="DCE.A720A656-33C2-DF11-0A8D-AA1D979109BD" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.05F83011-3EA4-8A30-03E1-A12A8C61C345"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.01C244C7-397E-930C-E1B2-19DD9AF0CAD2" visibility="private" association="DCE.A720A656-33C2-DF11-0A8D-AA1D979109BD" type="DCE.25E911AA-4542-5665-966C-B4EF293D36FA"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.79478CB2-7F0B-FE51-117C-B324F49B0BF5"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.84E55411-B125-3E52-BC0E-E6D5C13104C7" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.65206942-2702-0F3A-1650-E9A961F3DB70" visibility="private" association="DCE.84E55411-B125-3E52-BC0E-E6D5C13104C7" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.7390A3D0-18D4-9ED0-E282-7D42AF6D7F6B"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.B9E625F1-69C4-16F1-2B4A-347EF9DE1CBF" visibility="private" association="DCE.84E55411-B125-3E52-BC0E-E6D5C13104C7" type="DCE.0DDA1ECC-8FCB-4723-4416-3C39B7630F17"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.8BA7896D-D2E2-4935-5C65-6BDC0A2F6D77"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.F4E200A2-2524-19CB-816C-A768EF6F06E8" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.496C7472-DB53-F894-7B70-25A4962189CB" visibility="private" association="DCE.F4E200A2-2524-19CB-816C-A768EF6F06E8" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C0B5261E-0B8E-9BC3-C608-DAED815B7949"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.B420C12B-B300-2B1E-7C90-D13A40EF2597" visibility="private" association="DCE.F4E200A2-2524-19CB-816C-A768EF6F06E8" type="DCE.83036981-1A45-BE26-0B45-9E18D289C4B9"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.4E164E3A-3B6D-E6D8-D353-5FD669335848"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.B8FA6F56-6194-24C6-45F4-BDA97FCA7449" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.A30607DC-5847-375A-B8E0-401718DD177C" visibility="private" association="DCE.B8FA6F56-6194-24C6-45F4-BDA97FCA7449" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.71C281F5-FDB7-C91A-5F0B-2068E5237F7A"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.D73C5C2F-4100-675E-56D5-6E812286D7AF" visibility="private" association="DCE.B8FA6F56-6194-24C6-45F4-BDA97FCA7449" type="DCE.E64EA402-2ACD-9452-3123-2891C442DB0A"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.85F6EDD6-30E1-CB4F-F0E0-8E220A06C900"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.818C8FEC-4A2E-0814-53FF-91671D33A578" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.3DF1AB78-D086-BAAD-6C44-E105CAA4865E" visibility="private" association="DCE.818C8FEC-4A2E-0814-53FF-91671D33A578" type="DCE.76D4F357-4D45-877A-0A8F-9B10253FDB7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.5929DA3D-6778-EFE4-529F-2021D834BE7C"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.F81847BC-AB4D-CD0C-10B2-4D34AD038219" visibility="private" association="DCE.818C8FEC-4A2E-0814-53FF-91671D33A578" type="DCE.E9ECD2ED-43F0-1218-EBA3-CF07DB1F31AD"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.26E7F324-128D-D1E8-1A06-F19A11BEEA3F"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Actor xmi.id="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB" name="SwitchTransaccional" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.3E9266FC-5A20-FCCA-A2F8-897E7ECF582B DCE.B94E41A5-2147-CEFB-71A6-207B35B3CEE2 DCE.BC31C9A6-272B-B994-2445-EA974AD118C1 DCE.5868809A-5EFF-6374-A496-C0E0C83DA1D5"><UML:Element.presentation>
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.62FA4838-01B6-BFCD-C061-28802D6E7843" owner="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB" name="documentation">
+<UML:TaggedValue.dataValue>El &lt;b&gt;Switch Transaccional&lt;/b&gt; (core de la aplicación) actúa como actor 
+    frente a requerimientos enviados a los proveedores. Por lo tanto está 
+    represaentado como interesado en cumplir con ciertos requiesitos.
+
+Los CU's asociados al Switch marcan las responsabilidades requeridas por parte 
+    de los proveedores para que un servicio integral funcione correctamente.</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Actor>
+<UML:UseCase xmi.id="DCE.B6877CD1-6837-D972-7895-CF59C43D2937" name="Enviar mensaje sincrónico a proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.17C227E4-F8E5-B165-C059-900DEB6A5F84"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.B6398587-5117-D1A9-1B0F-CE92C1AD8EBE" name="Enviar mensaje asincrónico a proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.A7E14AFF-AEFB-0A09-6441-A60D6FBE5FC4"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.39C45619-06D5-F99E-8C25-27A5ECE68B9D" name="Solicitar servicio sincrónico a proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.00A299A6-573E-181C-6FF3-4D2B308FB8EE"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.0A813D3C-446F-7D08-120B-2D819BD22C04" name="Solictar servicio asincrónico a proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.ADEF3855-B3EC-5CC5-89A9-518388BB72EB"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:Association xmi.id="DCE.5D00AA6F-869E-748C-A85C-370A3D512778" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.3E9266FC-5A20-FCCA-A2F8-897E7ECF582B" visibility="private" association="DCE.5D00AA6F-869E-748C-A85C-370A3D512778" type="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.13A1FD49-AE9C-E96F-3D75-AD7AF30C952F"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.17C227E4-F8E5-B165-C059-900DEB6A5F84" visibility="private" association="DCE.5D00AA6F-869E-748C-A85C-370A3D512778" type="DCE.B6877CD1-6837-D972-7895-CF59C43D2937"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.7BAACAF0-6999-045F-096F-818B73EAC572"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.C4C321A6-FE12-1B56-815E-C6344A0DF588" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.B94E41A5-2147-CEFB-71A6-207B35B3CEE2" visibility="private" association="DCE.C4C321A6-FE12-1B56-815E-C6344A0DF588" type="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C06749ED-4E9C-18CF-8921-1D1861CA617B"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.A7E14AFF-AEFB-0A09-6441-A60D6FBE5FC4" visibility="private" association="DCE.C4C321A6-FE12-1B56-815E-C6344A0DF588" type="DCE.B6398587-5117-D1A9-1B0F-CE92C1AD8EBE"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.0FE59B66-9599-805B-50CD-264AE11D8CF5"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.7A73A2BF-B0F2-F92E-006E-C8B035F95C76" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.BC31C9A6-272B-B994-2445-EA974AD118C1" visibility="private" association="DCE.7A73A2BF-B0F2-F92E-006E-C8B035F95C76" type="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.F17CB63B-57B9-295C-9BF3-FEC69EBFB2F3"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.00A299A6-573E-181C-6FF3-4D2B308FB8EE" visibility="private" association="DCE.7A73A2BF-B0F2-F92E-006E-C8B035F95C76" type="DCE.39C45619-06D5-F99E-8C25-27A5ECE68B9D"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.DD52A0EA-37A7-CC14-C107-BE1D2203EB31"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.FF5A5653-A3B4-63B9-5EC8-8D1DA490009D" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.5868809A-5EFF-6374-A496-C0E0C83DA1D5" visibility="private" association="DCE.FF5A5653-A3B4-63B9-5EC8-8D1DA490009D" type="DCE.4CE86DC1-050B-26D8-3FBA-49470DAC0DDB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FDE1A4E8-9694-74B6-B197-7624332AB9D6"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.ADEF3855-B3EC-5CC5-89A9-518388BB72EB" visibility="private" association="DCE.FF5A5653-A3B4-63B9-5EC8-8D1DA490009D" type="DCE.0A813D3C-446F-7D08-120B-2D819BD22C04"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.14B4A973-3FD4-1F52-1383-4E6AB7A5CD8F"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Actor xmi.id="DCE.4DB28E5E-7271-0B7B-F9D9-DE509B74DC28" name="Proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.8E4D90FE-3F62-74FE-B736-0BED7CFE1F58 DCE.111AFD50-A82A-5966-DB3D-5413C2D597FA"><UML:Element.presentation>
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.741F757F-72B4-F496-F1D3-420955BD5568" owner="DCE.4DB28E5E-7271-0B7B-F9D9-DE509B74DC28" name="documentation">
+<UML:TaggedValue.dataValue>&lt;b&gt;&lt;font face=""&gt;Proveedor&lt;/font&gt;&lt;/b&gt;&lt;font face=""&gt; es quien contrata los servicios 
+    del Switch Transaccional para poder concentrar la recepción de 
+    mensajes a traves del Switch.
+
+Una de las ventajas es que esta 
+    modalidad permite concentrar en un único
+servicio ofrecido a los 
+    consumidores ser resuelto por múltiples
+proveedores. De esta forma 
+    se evita la repetición de operaciones para
+realizar una 
+    transaccion.
+
+El proveedor a su vez se puede convertir en Consumidor 
+    de servicios que
+solicita a otro Consumidor. Igualmente un proveedor 
+    actua tanto como
+proveedor como consumidor.
+
+Normalmente el 
+    logging el billing de los servicios registrados en el switch se
+asocian 
+    a un proveedor como pagador de los mismos.
+
+Por otra parte el 
+    proveedor descansa en el Switch Transaccional la valñidez y
+calidad 
+    de los servicios solicitados, como así también toda la
+infraestrucuta 
+    de seguridad.
+&lt;/font&gt;</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Actor>
+<UML:UseCase xmi.id="DCE.922ECDF0-33C9-DC7A-0883-DBB30812F434" name="Enviar respuesta de mensaje asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.D80BEFC3-E92D-F7CC-966E-80CF53545771"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.18314732-1921-1AB6-7B79-F13FD64A4F19" name="Enviar respuesta de servicio asincrónico" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.DF5C0963-E1FF-9B06-D9D3-AAB4270939E3"><UML:Element.presentation>
+
+</UML:Element.presentation></UML:UseCase>
+<UML:Association xmi.id="DCE.5461B278-0A86-DCD3-4FAC-CFD4572D4D97" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.8E4D90FE-3F62-74FE-B736-0BED7CFE1F58" visibility="private" association="DCE.5461B278-0A86-DCD3-4FAC-CFD4572D4D97" type="DCE.4DB28E5E-7271-0B7B-F9D9-DE509B74DC28"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.012A0730-09AF-473E-167D-B3B35841824A"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.D80BEFC3-E92D-F7CC-966E-80CF53545771" visibility="private" association="DCE.5461B278-0A86-DCD3-4FAC-CFD4572D4D97" type="DCE.922ECDF0-33C9-DC7A-0883-DBB30812F434"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.DCF2EB13-8313-7E77-C03E-720AE6A7B990"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.B78A184C-1438-F879-6937-45DD83FB7B1C" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.111AFD50-A82A-5966-DB3D-5413C2D597FA" visibility="private" association="DCE.B78A184C-1438-F879-6937-45DD83FB7B1C" type="DCE.4DB28E5E-7271-0B7B-F9D9-DE509B74DC28"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.59474A7B-55FC-1372-5EE3-155A98D18DE5"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.DF5C0963-E1FF-9B06-D9D3-AAB4270939E3" visibility="private" association="DCE.B78A184C-1438-F879-6937-45DD83FB7B1C" type="DCE.18314732-1921-1AB6-7B79-F13FD64A4F19"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.3CA18E0C-A5B0-1705-70DC-A37051ED80B2"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+</UML:Element.presentation></UML:Association>
+<UML:Actor xmi.id="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945" name="Administrador" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.69192C5B-0346-3A2C-625D-8D2420F58D0B DCE.E2A51575-5AE6-1608-11A5-A1AC48D863AC DCE.D3B6DA0D-A7BB-F432-D22E-1317A602AAE7 DCE.55ADA1BC-97EE-5C78-E8BD-D13C82749544 DCE.4CF0618A-B969-4E65-CC27-11D0BA568A1D DCE.D6A5F8A0-3BF6-AC37-541C-8157DE1954E1 DCE.E9811B04-D25E-760D-112C-FB2CB2C4D43B DCE.72738062-A4A3-3DC9-9AD1-02B0035DEBEA DCE.4882F87D-1D09-8352-C118-006E8690513E"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.E9DFC077-6433-DA4A-6FB7-42A6900B3E9F" owner="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945" name="documentation">
+<UML:TaggedValue.dataValue>Al Administrador del &lt;b&gt;Switch Transaccional&lt;/b&gt; Tiene la responsabilidad 
+    de administrar y controlar la configuración del motor tranmsacional para 
+    que el mismo funcione como se espera. Aplicando las reglas requeridas y 
+    resolviendo los servicios solicitados.
+
+Para ello es imprescindible configurar reglas que permitan administrar 
+    correctaemnte el Switch.
+
+Los casos de uso asociados al Administrador son internos del Switch.</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:Actor>
+<UML:UseCase xmi.id="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11" name="Registrar nueva Entidad" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.007415B7-90DB-44D4-4AC1-AA098B792D66 DCE.7CB890F4-F017-A37F-BEDE-5BF0B677AE84" extendedBy="DCE.53008E41-1303-8A8D-0613-441AD5065979 DCE.7C97459E-677C-1FCD-E9ED-BFB0F93FBC05" isFinal="true"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Include xmi.id="DCE.465AAC6B-8CF9-6301-EA61-3670E03D7605" owner="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11" target="DCE.8D8B7163-966A-4F5A-DC03-0709A4F51FB2"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Include>
+<UML:TaggedValue xmi.id="DCE.4F67656D-9E80-AEA3-820E-914D52371C3A" owner="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11" name="CUDoc" alias=" Documentación del caso de uso">
+<UML:TaggedValue.dataValue>CU-SwitchTransaccionl-0001 - Registrar nueva Entidad  </UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.43B1FF78-BEC0-D19E-F32B-8D4736098916" name="Registrar Proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.B0FE459F-038C-0912-208C-7FBA06146BC5"><UML:Element.presentation>
+
+
+
+
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Extend xmi.id="DCE.53008E41-1303-8A8D-0613-441AD5065979" owner="DCE.43B1FF78-BEC0-D19E-F32B-8D4736098916" target="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Extend>
+<UML:Extend xmi.id="DCE.7C97459E-677C-1FCD-E9ED-BFB0F93FBC05" owner="DCE.43B1FF78-BEC0-D19E-F32B-8D4736098916" target="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Extend></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.8AF1B560-AAD7-F2BC-C01A-C76BC6C3A997" name="Definir / Configurar servicio" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.779D8385-FF29-CD0A-7AF2-B8E173F4635E"><UML:Element.presentation>
+
+
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.B84EA53D-6635-4DD7-D2C0-2A09390DCA43" name="Definir / Configurar reglas de uso para un servicio" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.8327CACC-9461-2417-B501-D6E0348491D1 DCE.1301DB7B-95C9-4B62-5E61-0B7F4D46492A"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Include xmi.id="DCE.52297CE0-7DC6-23F1-454D-388E602E439C" owner="DCE.B84EA53D-6635-4DD7-D2C0-2A09390DCA43" target="DCE.7B1D1505-AFB6-CACD-7425-0294B06CA109"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Include>
+<UML:Include xmi.id="DCE.5A775574-260C-DA3F-1915-A45CEEFFC76C" owner="DCE.B84EA53D-6635-4DD7-D2C0-2A09390DCA43" target="DCE.E06C74E3-ED8D-6EBA-F63E-A7FD37F988E7"><UML:Element.presentation>
+
+
+
+
+
+</UML:Element.presentation></UML:Include></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.7B1D1505-AFB6-CACD-7425-0294B06CA109" name="Definir descomposisción de servicios (sub-servicios)" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.026FAB5B-6F2A-77C3-940F-20ADC21C0460" includedBy="DCE.52297CE0-7DC6-23F1-454D-388E602E439C"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.BCEFF376-AF24-0940-99A9-0C0FC8D847FB" name="Registrar servicios de proveedor" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.4E179BFF-967D-3F65-C5B8-8571B990FEE3"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:TaggedValue xmi.id="DCE.6C491915-070B-727E-2E1F-3ED49B025C4B" owner="DCE.BCEFF376-AF24-0940-99A9-0C0FC8D847FB" name=" CUDoc" alias=" Documentación ed Caso de Uso">
+<UML:TaggedValue.dataValue> CU-SwitchTransaccionl-0003 - Registrar servicios de proveedor</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.4C9BEC21-A04E-D19A-D6D7-B4322536856A" name="Configurar seguridad de acceso al portal" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.0858C825-70A1-7087-9B0B-ADB0E3B83B05"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:Association xmi.id="DCE.F162D6B4-7F9D-6DD6-7E3B-1D3184F7FF6D" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.69192C5B-0346-3A2C-625D-8D2420F58D0B" visibility="private" association="DCE.F162D6B4-7F9D-6DD6-7E3B-1D3184F7FF6D" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FC665773-9907-FF4B-2DAA-AEFFD45D02CB"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.007415B7-90DB-44D4-4AC1-AA098B792D66" visibility="private" association="DCE.F162D6B4-7F9D-6DD6-7E3B-1D3184F7FF6D" type="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.D9DCBE07-1069-660C-42F0-4FFE6FE4B6BA"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:Association xmi.id="DCE.D420823C-44F3-CDDB-76D7-CBD755FEC548" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.D3B6DA0D-A7BB-F432-D22E-1317A602AAE7" visibility="private" association="DCE.D420823C-44F3-CDDB-76D7-CBD755FEC548" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.099FF2BA-36A0-8DB5-F50C-26A9F20BC667"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.4E179BFF-967D-3F65-C5B8-8571B990FEE3" visibility="private" association="DCE.D420823C-44F3-CDDB-76D7-CBD755FEC548" type="DCE.BCEFF376-AF24-0940-99A9-0C0FC8D847FB"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FFF78112-4CD6-51F0-EDA7-E9EF92ED82A5"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.13542DBE-5641-0D13-2681-E4486B335782" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.55ADA1BC-97EE-5C78-E8BD-D13C82749544" visibility="private" association="DCE.13542DBE-5641-0D13-2681-E4486B335782" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C427736E-EAB0-A627-1970-159423E37E1F"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.779D8385-FF29-CD0A-7AF2-B8E173F4635E" visibility="private" association="DCE.13542DBE-5641-0D13-2681-E4486B335782" type="DCE.8AF1B560-AAD7-F2BC-C01A-C76BC6C3A997"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C7523F76-C744-D96D-2345-E188C748D752"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.491AF07A-6884-54D2-E320-812E2783C4AF" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.4CF0618A-B969-4E65-CC27-11D0BA568A1D" visibility="private" association="DCE.491AF07A-6884-54D2-E320-812E2783C4AF" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.70E88521-60F1-6DF2-74DA-AFBDD0412ED8"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.0858C825-70A1-7087-9B0B-ADB0E3B83B05" visibility="private" association="DCE.491AF07A-6884-54D2-E320-812E2783C4AF" type="DCE.4C9BEC21-A04E-D19A-D6D7-B4322536856A"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.87DA4A31-F744-1805-1D5B-716D724F326B"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:Association xmi.id="DCE.BB05F956-2834-8DBB-1495-6EA78B0C7EA9" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.D6A5F8A0-3BF6-AC37-541C-8157DE1954E1" visibility="private" association="DCE.BB05F956-2834-8DBB-1495-6EA78B0C7EA9" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.906B9CBD-C9A7-25E9-8AE8-E8AE3F8A50EA"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.8327CACC-9461-2417-B501-D6E0348491D1" visibility="private" association="DCE.BB05F956-2834-8DBB-1495-6EA78B0C7EA9" type="DCE.B84EA53D-6635-4DD7-D2C0-2A09390DCA43"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.187EB490-36DB-7FCB-323B-9010ECD75E8C"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:UseCase xmi.id="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B" name="Definir Segmentos y Atributos para Entidades" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" associationEnd="DCE.60D046E8-0184-D442-D4CE-CDC04D08264E" extendedBy="DCE.C3E1160C-00C7-E27B-CA46-4E0DAA192E4D DCE.233B1B74-54AF-ED04-A9ED-AB7D6D51DED1 DCE.7739FF56-B127-3637-BF4D-6506AE7CFA0C"><UML:Element.presentation>
+
+
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+
+
+
+<UML:TaggedValue xmi.id="DCE.428C450F-3624-136D-1A75-0921BBD79971" owner="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B" name="CUDoc" alias=" Documentación de Caso de Uso">
+<UML:TaggedValue.dataValue> CU-SwitchTransaccionl-0002 - Definir Segmentos y Atributos para Entidades</UML:TaggedValue.dataValue></UML:TaggedValue></UML:Element.ownedElement></UML:UseCase>
+
+<UML:Association xmi.id="DCE.3215557B-B945-171A-AE62-D73A8ADE488E" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.E9811B04-D25E-760D-112C-FB2CB2C4D43B" visibility="private" association="DCE.3215557B-B945-171A-AE62-D73A8ADE488E" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.03CDE48B-F451-D477-9274-7AECB62252DF"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.60D046E8-0184-D442-D4CE-CDC04D08264E" visibility="private" association="DCE.3215557B-B945-171A-AE62-D73A8ADE488E" type="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.DE1EE363-32C4-3CDC-7C23-E60F30A962E0"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+
+</UML:Element.presentation></UML:Association>
+
+<UML:Comment xmi.id="DCE.75FFCF12-7FD5-631D-0CEA-1733D4B18686" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Element.presentation>
+</UML:Element.presentation></UML:Comment>
+<UML:Comment xmi.id="DCE.3E080E6C-5B1A-8141-DF43-4B477B798EA2" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Element.presentation>
+</UML:Element.presentation></UML:Comment>
+<UML:Association xmi.id="DCE.E5B5B192-9B22-36BC-BA62-65E59D11D5B8" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27"><UML:Association.end>
+<UML:AssociationEnd xmi.id="DCE.4882F87D-1D09-8352-C118-006E8690513E" visibility="private" association="DCE.E5B5B192-9B22-36BC-BA62-65E59D11D5B8" type="DCE.C1CE519A-B2FE-7D79-3FCD-AA819A0C5945"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.FFB681A4-4D36-19D2-533C-F7B026B17801"/></UML:TypedElement.multiplicity></UML:AssociationEnd>
+<UML:AssociationEnd xmi.id="DCE.7CB890F4-F017-A37F-BEDE-5BF0B677AE84" visibility="private" association="DCE.E5B5B192-9B22-36BC-BA62-65E59D11D5B8" type="DCE.990487F6-2F60-56B7-8FF0-764911E1CD11"><UML:TypedElement.multiplicity>
+<UML:Multiplicity xmi.id="DCE.C3F8D032-DCEE-3950-909B-EA25A69837D5"/></UML:TypedElement.multiplicity></UML:AssociationEnd></UML:Association.end><UML:Element.presentation>
+
+
+
+
+</UML:Element.presentation></UML:Association>
+<UML:UseCase xmi.id="DCE.076C6B7D-728A-0E4E-E1F1-06C4A48D0D83" name="Atributos de Proveedores" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" extendedBy="DCE.C74431AE-753D-4B20-7526-297C0306A976"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Extend xmi.id="DCE.7739FF56-B127-3637-BF4D-6506AE7CFA0C" owner="DCE.076C6B7D-728A-0E4E-E1F1-06C4A48D0D83" target="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Extend></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.64B742DD-698F-E4DE-E6D8-5655A8431F5A" name="Atriburos de Consumidores" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" extendedBy="DCE.557AED5F-AD4F-4876-4563-27014FBF0BF1"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Extend xmi.id="DCE.C3E1160C-00C7-E27B-CA46-4E0DAA192E4D" owner="DCE.64B742DD-698F-E4DE-E6D8-5655A8431F5A" target="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Extend></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.0E9B98B5-5DDF-4638-50D0-9EC7D0FEDF80" name="Atributos de Servicios" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" extendedBy="DCE.974472C7-7125-E0D5-CC3F-8151C578FBA2"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation><UML:Element.ownedElement>
+<UML:Extend xmi.id="DCE.233B1B74-54AF-ED04-A9ED-AB7D6D51DED1" owner="DCE.0E9B98B5-5DDF-4638-50D0-9EC7D0FEDF80" target="DCE.B3019FEF-D939-933A-6CDD-7C55CD42DD7B"><UML:Element.presentation>
+
+
+
+
+
+
+
+</UML:Element.presentation></UML:Extend></UML:Element.ownedElement></UML:UseCase>
+<UML:UseCase xmi.id="DCE.8D8B7163-966A-4F5A-DC03-0709A4F51FB2" name="Registrar atributos de la Entidad" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" includedBy="DCE.465AAC6B-8CF9-6301-EA61-3670E03D7605"><UML:Element.presentation>
+
+
+
+</UML:Element.presentation></UML:UseCase>
+<UML:UseCase xmi.id="DCE.E06C74E3-ED8D-6EBA-F63E-A7FD37F988E7" name="Definir y registrar grupos de atributos (segmentos)" owner="DCE.24E4B89F-3A12-B499-1A07-C2E93E900D27" includedBy="DCE.5A775574-260C-DA3F-1915-A45CEEFFC76C"><UML:Element.presentation>
+
+
+</UML:Element.presentation></UML:UseCase></UML:Element.ownedElement></UML:Project></XMI.content> </XMI>
