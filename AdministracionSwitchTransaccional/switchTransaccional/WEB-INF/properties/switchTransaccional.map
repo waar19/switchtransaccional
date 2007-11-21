@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sitemap PUBLIC "SOFIA Site Map" "http://www.salmonllc.com/sofiaExamples/sitemap.dtd">
+<siteMap>
+
+  <entry>
+     <name>About</name>
+     <uri>../infraestructura/Jsp/AboutPage.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>HomePage</name>
+     <uri>../infraestructura/Jsp/HomePage.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>Administracion</name>
+     <uri>../infraestructura/Jsp/MenuAdministracion.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>AbmcEsquemaConfiguracion</name>
+     <uri>../infraestructura/Jsp/AbmcEsquemaConfiguracion.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>MenuSwitchTransaccional</name>
+     <uri>/Jsp/MenuSwitchTransaccional.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>MenuServicios</name>
+     <uri>/Jsp/MenuServicios.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>AbmcEntidadExterna</name>
+     <uri>../infraestructura/Jsp/AbmcEntidadExterna.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>AbmcServicioDistribuido</name>
+     <uri>/Jsp/AbmcServicioDistribuido.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>AbmcRecuperaAtributos</name>
+     <uri>/Jsp/AbmcRecuperaAtributos.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>AbmcServiciosEntidad</name>
+     <uri>/Jsp/AbmcServiciosEntidad.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+  
+  <entry>
+     <name>AbmcConfiguracionServicio</name>
+     <uri>/Jsp/AbmcConfiguracionServicio.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>InformeLog</name>
+     <uri>/Jsp/InformeLog.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>LkpConfiguracionesServicios</name>
+     <uri>/Jsp/LkpConfiguracionesServicios.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>LkpProveedores</name>
+     <uri>/Jsp/LkpProveedores.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>LkpClientes</name>
+     <uri>/Jsp/LkpClientes.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>LkpAtributosRol</name>
+     <uri>/Jsp/LkpAtributosRol.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>LkpWebSiteUsers</name>
+     <uri>/Jsp/LkpWebSiteUsers.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>Login</name>
+     <uri>../infraestructura/Jsp/LoginPage.jsp</uri>
+     <useForward>false</useForward>
+     <secure>true</secure>
+  </entry>
+
+  <entry>
+     <name>Options</name>
+     <uri>../infraestructura/Jsp/OptionsPage.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>Ayuda</name>
+     <uri>/Html/guiUsusrio.html</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>Home</name>
+     <uri>http://www.xxxxx.xxx.ar</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>ImageDirectory</name>
+     <uri>../infraestructura/Jsp/images/</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>SessionExpired</name>
+     <uri>../infraestructura/Jsp/SessionExpired.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>PageExpired</name>
+     <uri>../infraestructura/Jsp/PageExpired.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>DbConnectError</name>
+     <uri>../infraestructura/Jsp/DBConnectError.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>UsuarioInvalidoError</name>
+     <uri>../infraestructura/Jsp/UsuarioInvalidoError.jsp</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+  <entry>
+     <name>Birt</name>
+     <uri>birt</uri>
+     <useForward>false</useForward>
+     <secure>false</secure>
+  </entry>
+
+</siteMap>
