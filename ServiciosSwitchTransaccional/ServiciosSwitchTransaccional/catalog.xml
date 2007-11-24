@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/ServiciosSwitchTransaccional/src/java/org/st/AtributosServiciosXmlSchema.xsd" uri="src/conf/xml-resources/jaxb/AtributosServiciosJaxb/AtributosServiciosXmlSchema.xsd"/>
+    <system systemId="http://localhost:18181/loopBack01Service/loopBack01Port?wsdl" uri="src/conf/xml-resources/web-service-references/loopBack01Port/wsdl/localhost_18181/loopBack01Service/loopBack01Port.wsdl"/>
+    <system systemId="http://e-web-on-003:18181/CompositeAppSwitchTransaccional-sun-http-binding/Loopbacks/templateInvocaConfiguracion.xsd" uri="src/conf/xml-resources/web-service-references/loopBack01Port/wsdl/e-web-on-003_18181/CompositeAppSwitchTransaccional-sun-http-binding/Loopbacks/templateInvocaConfiguracion.xsd"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/ServiciosSwitchTransaccional/src/java/org/st/templateInvocaConfiguracion.xsd" uri="src/conf/xml-resources/jaxb/RequerimientoJaxb/templateInvocaConfiguracion.xsd"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/Loopbacks/src/loopBack01.wsdl" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/loopBack01.wsdl"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/ServiciosSwitchTransaccional/../Loopbacks/src/loopBack01.wsdl" uri="src/conf/xml-resources/jaxb/templateInvocaWS/loopBack01.wsdl"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/Loopbacks/src/templateInvocaConfiguracion.xsd" uri="src/conf/xml-resources/jaxb/templateInvocaWS/templateInvocaConfiguracion.xsd"/>
+</catalog>

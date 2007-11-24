@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="FrontEnd01"
+    targetNamespace="http://enterprise.netbeans.org/bpel/BpelSwitchTransaccional/FrontEnd01"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/BpelSwitchTransaccional/FrontEnd01" xmlns:ns1="http://j2ee.netbeans.org/wsdl/FrontEnd01" xmlns:ns2="http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico" xmlns:ns3="http://localhost/BluePrint5/AirLineReservation" xmlns:ns0="http://xml.netbeans.org/schema/FrontEnd01">
+    <import namespace="http://j2ee.netbeans.org/wsdl/FrontEnd01" location="FrontEnd01.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico" location="switchTransaccionalSincronico.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://localhost/BluePrint5/AirLineReservation" location="Partners/AirLineReservation/AirLineReservation.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://localhost/BluePrint5/Reservation" location="Partners/AirLineReservation/Reservation.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="FrontEnd" partnerLinkType="ns1:FrontEnd011" myRole="FrontEnd01PortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="FrontEnd01OperationOut" messageType="ns1:FrontEnd01OperationReply"/>
+        <variable name="FrontEnd01OperationIn" messageType="ns1:FrontEnd01OperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive" createInstance="yes" partnerLink="FrontEnd" operation="FrontEnd01Operation" portType="ns1:FrontEnd01PortType" variable="FrontEnd01OperationIn"/>
+        <assign name="Assign2">
+            <copy>
+                <from>concat('&lt;mensaje&gt;&lt;dato1&gt;', $FrontEnd01OperationIn.requerimiento/ns0:mensaje/ns0:dato1, '&lt;/dato1&gt;&lt;dato2&gt;', $FrontEnd01OperationIn.requerimiento/ns0:mensaje/ns0:dato2, '&lt;/dato2&gt;&lt;dato3&gt;', $FrontEnd01OperationIn.requerimiento/ns0:mensaje/ns0:dato3, '&lt;/dato3&gt;&lt;/mensaje&gt;')</from>
+                <to>$FrontEnd01OperationOut.respuesta/ns0:return</to>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="FrontEnd" operation="FrontEnd01Operation" portType="ns1:FrontEnd01PortType" variable="FrontEnd01OperationOut"/>
+    </sequence>
+</process>
