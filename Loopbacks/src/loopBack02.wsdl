@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="loopBack02" targetNamespace="http://j2ee.netbeans.org/wsdl/loopBack02"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xml.netbeans.org/schema/templateInvocaConfiguracion" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://j2ee.netbeans.org/wsdl/loopBack02">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/loopBack02">
+            <xsd:import namespace="http://xml.netbeans.org/schema/templateInvocaConfiguracion" schemaLocation="templateInvocaConfiguracion.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="loopBack02OperationRequest">
+        <part name="requerimiento" element="ns:requerimiento"/>
+    </message>
+    <message name="loopBack02OperationReply">
+        <part name="respuesta" element="ns:respuesta"/>
+    </message>
+    <portType name="loopBack02PortType">
+        <operation name="loopBack02Operation">
+            <input name="input1" message="tns:loopBack02OperationRequest"/>
+            <output name="output1" message="tns:loopBack02OperationReply"/>
+        </operation>
+    </portType>
+    <binding name="loopBack02Binding" type="tns:loopBack02PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="loopBack02Operation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="loopBack02Service">
+        <port name="loopBack02Port" binding="tns:loopBack02Binding">
+            <soap:address location="http://localhost:18181/loopBack02Service/loopBack02Port"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="loopBack021">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="loopBack02PortTypeRole" portType="tns:loopBack02PortType"/>
+    </plnk:partnerLinkType>
+</definitions>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="LoopBack01"
+    targetNamespace="http://enterprise.netbeans.org/bpel/Loopbacks/LoopBack01"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/Loopbacks/LoopBack01" xmlns:ns1="http://j2ee.netbeans.org/wsdl/loopBack01" xmlns:ns0="http://xml.netbeans.org/schema/templateInvocaConfiguracion">
+    <import namespace="http://j2ee.netbeans.org/wsdl/loopBack01" location="loopBack01.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="PartnerLink1" partnerLinkType="ns1:loopBack011" myRole="loopBack01PortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="LoopBack01OperationOut" messageType="ns1:loopBack01OperationReply"/>
+        <variable name="LoopBack01OperationIn" messageType="ns1:loopBack01OperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="Receive1" createInstance="yes" partnerLink="PartnerLink1" operation="loopBack01Operation" portType="ns1:loopBack01PortType" variable="LoopBack01OperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from>concat($LoopBack01OperationIn.requerimiento/ns0:mensaje, ': loopback01')</from>
+                <to>$LoopBack01OperationOut.respuesta/ns0:return</to>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="PartnerLink1" operation="loopBack01Operation" portType="ns1:loopBack01PortType" variable="LoopBack01OperationOut"/>
+    </sequence>
+</process>
