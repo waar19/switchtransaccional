@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/prestacionMedica"
+            xmlns:tns="http://xml.netbeans.org/schema/prestacionMedica"
+            elementFormDefault="qualified">
+    <xsd:complexType name="Requerimiento">
+        <xsd:sequence>
+            <xsd:element name="mensaje">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="contribuyente" type="tns:Persona"/>
+                        <xsd:element name="dominio" type="xsd:string"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Respuesta">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Persona">
+        <xsd:sequence>
+            <xsd:element name="apellido" type="xsd:string"/>
+            <xsd:element name="mombres" type="xsd:string"/>
+            <xsd:element name="documentos" type="tns:Documento" maxOccurs="unbounded"/>
+            <xsd:element name="domicilio" type="tns:Domicilio"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Documento">
+        <xsd:sequence>
+            <xsd:element name="tipo" type="xsd:string"/>
+            <xsd:element name="numero" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Domicilio">
+        <xsd:sequence>
+            <xsd:element name="calle" type="xsd:string"/>
+            <xsd:element name="numero" type="xsd:string"/>
+            <xsd:element name="cp" type="xsd:string"/>
+            <xsd:element name="localidad" type="xsd:string"/>
+            <xsd:element name="provincia" type="xsd:string"/>
+            <xsd:element name="pais" type="xsd:string"/>
+            <xsd:element name="zona" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="requerimiento" type="tns:Requerimiento"/>
+    <xsd:element name="respuesta" type="tns:Respuesta"/>
+</xsd:schema>
