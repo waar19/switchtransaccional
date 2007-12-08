@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8081/RecuperaAtributosServicioService/RecuperaAtributosServicio?wsdl" uri="src/Partners/RecuperaAtributosServicioService/RecuperaAtributosServicio.wsdl"/>
+    <system systemId="http://localhost:8081/RecuperaAtributosServicioService/RecuperaAtributosServicio?xsd=1" uri="src/Partners/RecuperaAtributosServicioService/RecuperaAtributosServicio_xsd_1.xsd"/>
+    <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
     <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BpelSwitchTransaccional/src/switchTransaccionalSincronico.wsdl" uri="src/Partners/switchTransaccionalSincronico/switchTransaccionalSincronico.wsdl"/>
     <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BpelSwitchTransaccional/src/switchTransaccionalSincronico.xsd" uri="src/Partners/switchTransaccionalSincronico/switchTransaccionalSincronico.xsd"/>
 </catalog>
