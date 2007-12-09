@@ -32,7 +32,7 @@ import javax.persistence.Query;
 public class AdministraLogSwitch {
 
 /**
-     * Web service operation
+     * Obtiene un número único de operación denominado Ticket
      */
     @WebMethod(operationName = "ObtenerTIcketServicio")
     public int obtenerTIcketServicio(@WebParam(name = "p_codigo_servicio")
@@ -99,7 +99,14 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Esta operación permite registrar distintos eventos en el log de transacciones para un ticket determinado.
+     * Los eventos permitidos son:
+     * solicitado --> timestamp de momento en que se solicitó el servicio
+     * ticket asincronico --> para un mensaje asincrónico el timestamp en que se otorga el ticket
+     * despacha bpel --> timestamp en el momento en que se despacha el bpel que atiende al comportamiento especófico del mensaje
+     * ensambla respuesta --> timestamp en que termina el ensamblado de la respuesta
+     * entrega respuesta --> timestamp en el monmeto en que se entrega la respuesta al solicitante del servicio
+     * ultima solicitud respuesta --> timestamp en que un cliente de mensaje asincrónico solicitó quie se lñe entregue la respuesta
      */
     @WebMethod(operationName = "RegistrarEvento")
     public int registrarEvento(@WebParam(name = "p_ticket")
@@ -163,7 +170,7 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Registra en el log de transacciones el mensaje (servicio) solicitado
      */
     @WebMethod(operationName = "registrarMensaje")
     public int registrarMensaje(@WebParam(name = "p_ticket")
@@ -200,7 +207,7 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Registra en el log de transacciones la respuesta ensamblada obtenida por parte de los proveedores
      */
     @WebMethod(operationName = "registrarRespuesta")
     public int registrarRespuesta(@WebParam(name = "p_ticket")
@@ -237,7 +244,7 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Guarda en el log de transacciones e XML de los atributros recupeardos del mensaje
      */
     @WebMethod(operationName = "registrarAtributos")
     public int registrarAtributos(@WebParam(name = "p_ticket")
@@ -274,7 +281,7 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Registra la configuración recuperada según los atributos del mensaje en el log de transacciones para este ticket
      */
     @WebMethod(operationName = "RegistrarConfiguracion")
     public int RegistrarConfiguracion(@WebParam(name = "p_ticket")
@@ -328,7 +335,7 @@ public class AdministraLogSwitch {
     }
 
 /**
-     * Web service operation
+     * Resgistra en el log de transacciones el endponint del BPEL que ejecutará según la configuración determinada
      */
     @WebMethod(operationName = "registrarBpelEndpoint")
     public int registrarBpelEndpoint(@WebParam(name = "p_ticket")
