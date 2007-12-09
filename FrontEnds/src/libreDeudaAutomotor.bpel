@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<process
+    name="libreDeudaAutomotor"
+    targetNamespace="http://enterprise.netbeans.org/bpel/FrontEnds/libreDeudaAutomotor"
+    xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://enterprise.netbeans.org/bpel/FrontEnds/libreDeudaAutomotor" xmlns:ns1="http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico" xmlns:ns0="http://xml.netbeans.org/schema/prestacionMedica" xmlns:ns2="http://xml.netbeans.org/schema/switchTransaccionalSincrónico">
+    <import namespace="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" location="libreDeudaAutomotor.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://enterprise.netbeans.org/bpel/DeterminaConfiguracionServicioWrapper" location="Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicioWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://st.org/" location="Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <partnerLinks>
+        <partnerLink name="SwitchTransaccional" xmlns:tns="http://enterprise.netbeans.org/bpel/DeterminaConfiguracionServicioWrapper" partnerLinkType="tns:DeterminaConfiguracionServicioLinkType" partnerRole="DeterminaConfiguracionServicioRole"/>
+        <partnerLink name="ClienteLibreDeuda" xmlns:tns="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" partnerLinkType="tns:libreDeudaAutomotor1" myRole="libreDeudaAutomotorPortTypeRole"/>
+    </partnerLinks>
+    <variables>
+        <variable name="EjecutaSTDinamicoOut" xmlns:tns="http://st.org/" messageType="tns:ejecutaSTDinamicoResponse"/>
+        <variable name="EjecutaSTDinamicoIn" xmlns:tns="http://st.org/" messageType="tns:ejecutaSTDinamico"/>
+        <variable name="LibreDeudaAutomotorOperationOut" xmlns:tns="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" messageType="tns:libreDeudaAutomotorOperationReply"/>
+        <variable name="LibreDeudaAutomotorOperationIn" xmlns:tns="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" messageType="tns:libreDeudaAutomotorOperationRequest"/>
+    </variables>
+    <sequence>
+        <receive name="SolicitaLibreDeuda" createInstance="yes" partnerLink="ClienteLibreDeuda" operation="libreDeudaAutomotorOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" portType="tns:libreDeudaAutomotorPortType" variable="LibreDeudaAutomotorOperationIn"/>
+        <assign name="Assign1">
+            <copy>
+                <from>concat('&lt;mensaje&gt;&lt;id&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:id, '&lt;/id&gt;&lt;contribuyente&gt;&lt;apellido&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:apellido, '&lt;/apellido&gt;&lt;nombres&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:mombres, '&lt;/nombres&gt;&lt;documentos&gt;&lt;tipo&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:documentos/ns0:tipo, '&lt;/tipo&gt;&lt;numero&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:documentos/ns0:numero, '&lt;/numero&gt;&lt;/documentos&gt;&lt;domicilio&gt;&lt;calle&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:calle, '&lt;/calle&gt;&lt;numero&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:numero, '&lt;/numero&gt;&lt;cp&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:cp, '&lt;/cp&gt;&lt;localidad&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:localidad, '&lt;/localidad&gt;&lt;provincia&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:provincia, '&lt;/provincia&gt;&lt;pais&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:pais, '&lt;/pais&gt;&lt;zona&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:contribuyente/ns0:domicilio/ns0:zona, '&lt;/zona&gt;&lt;/domicilio&gt;&lt;/contribuyente&gt;&lt;dominio&gt;', $LibreDeudaAutomotorOperationIn.requerimiento/ns0:mensaje/ns0:dominio, '&lt;/dominio&gt;&lt;/mensaje&gt;')</from>
+                <to>$EjecutaSTDinamicoIn.parameters/pMensaje</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>00002</literal>
+                </from>
+                <to>$EjecutaSTDinamicoIn.parameters/pCodigoServicio</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>	http://j2ee.netbeans.org/wsdl/switchTransaccionalSincronico</literal>
+                </from>
+                <to>$EjecutaSTDinamicoIn.parameters/pNameSpaceURI</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>switchTransaccionalSincronicoService</literal>
+                </from>
+                <to>$EjecutaSTDinamicoIn.parameters/pNombreServicio</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>switchTransaccionalSincronicoPort</literal>
+                </from>
+                <to>$EjecutaSTDinamicoIn.parameters/pNombrePuerto</to>
+            </copy>
+            <copy>
+                <from>
+                    <literal>http://localhost:18181/switchTransaccionalSincronicoService/switchTransaccionalSincronicoPort?wsdl</literal>
+                </from>
+                <to>$EjecutaSTDinamicoIn.parameters/pEndPoint</to>
+            </copy>
+        </assign>
+        <invoke name="st" partnerLink="SwitchTransaccional" operation="ejecutaSTDinamico" xmlns:tns="http://st.org/" portType="tns:DeterminaConfiguracionServicio" inputVariable="EjecutaSTDinamicoIn" outputVariable="EjecutaSTDinamicoOut"/>
+        <assign name="Assign2">
+            <copy>
+                <from>$EjecutaSTDinamicoOut.parameters/return</from>
+                <to>$LibreDeudaAutomotorOperationOut.respuesta/ns0:return</to>
+            </copy>
+        </assign>
+        <reply name="Reply1" partnerLink="ClienteLibreDeuda" operation="libreDeudaAutomotorOperation" xmlns:tns="http://j2ee.netbeans.org/wsdl/libreDeudaAutomotor" portType="tns:libreDeudaAutomotorPortType" variable="LibreDeudaAutomotorOperationOut"/>
+    </sequence>
+</process>

@@ -9,6 +9,7 @@
             <xsd:element name="mensaje">
                 <xsd:complexType>
                     <xsd:sequence>
+                        <xsd:element name="id" type="xsd:string"/>
                         <xsd:element name="contribuyente" type="tns:Persona"/>
                         <xsd:element name="dominio" type="xsd:string"/>
                     </xsd:sequence>

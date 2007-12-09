@@ -5,4 +5,6 @@
     <nextCatalog catalog="nbproject/private/cache/retriever/catalog.xml"/>
     <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BpelSwitchTransaccional/src/switchTransaccionalSincronico.wsdl" uri="src/Partners/switchTransaccionalSincronico/switchTransaccionalSincronico.wsdl"/>
     <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BpelSwitchTransaccional/src/switchTransaccionalSincronico.xsd" uri="src/Partners/switchTransaccionalSincronico/switchTransaccionalSincronico.xsd"/>
+    <system systemId="http://localhost:8081/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio?wsdl" uri="src/Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio.wsdl"/>
+    <system systemId="http://localhost:8081/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio?xsd=1" uri="src/Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio_xsd_1.xsd"/>
 </catalog>

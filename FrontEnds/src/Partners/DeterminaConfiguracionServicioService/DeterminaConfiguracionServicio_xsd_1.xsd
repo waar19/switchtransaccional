@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is JAX-WS RI 2.1.2-hudson-182-RC1. --><xs:schema xmlns:tns="http://st.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://st.org/">
+
+<xs:element name="determinaConfiguracion" type="tns:determinaConfiguracion"></xs:element>
+
+<xs:element name="determinaConfiguracionResponse" type="tns:determinaConfiguracionResponse"></xs:element>
+
+<xs:element name="ejecutaBPELConfiguracion" type="tns:ejecutaBPELConfiguracion"></xs:element>
+
+<xs:element name="ejecutaBPELConfiguracionResponse" type="tns:ejecutaBPELConfiguracionResponse"></xs:element>
+
+<xs:element name="ejecutaSTDinamico" type="tns:ejecutaSTDinamico"></xs:element>
+
+<xs:element name="ejecutaSTDinamicoResponse" type="tns:ejecutaSTDinamicoResponse"></xs:element>
+
+<xs:element name="ejecutaWebServiceDinamico" type="tns:ejecutaWebServiceDinamico"></xs:element>
+
+<xs:element name="ejecutaWebServiceDinamicoResponse" type="tns:ejecutaWebServiceDinamicoResponse"></xs:element>
+
+<xs:complexType name="ejecutaBPELConfiguracion">
+<xs:sequence>
+<xs:element name="codigo_servicio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="p_configuracion_id" type="xs:int"></xs:element>
+<xs:element name="p_mensaje" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutaBPELConfiguracionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutaSTDinamico">
+<xs:sequence>
+<xs:element name="pCodigoServicio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pNameSpaceURI" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pNombreServicio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pNombrePuerto" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pEndPoint" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pMensaje" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutaSTDinamicoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutaWebServiceDinamico">
+<xs:sequence>
+<xs:element name="pNameSpaceURI" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pNombreServicio" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pNombrePuerto" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pEndPoint" type="xs:string" minOccurs="0"></xs:element>
+<xs:element name="pMensaje" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ejecutaWebServiceDinamicoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determinaConfiguracion">
+<xs:sequence>
+<xs:element name="atributos" type="xs:string" minOccurs="0"></xs:element>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="determinaConfiguracionResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"></xs:element>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
