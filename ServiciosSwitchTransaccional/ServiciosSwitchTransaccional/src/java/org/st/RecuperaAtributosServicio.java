@@ -49,7 +49,26 @@ public class RecuperaAtributosServicio {
     TransformerFactory tf = TransformerFactory.newInstance();
 
     /**
-     * Web service operation
+     * Esta operación permite dada la configuración de recupèarción de atributos de un mensaje 
+     * extraer el contenido del mismo, retornando en XML con el siguiente formato:
+     *     <xsd:element name="atributos">
+     *        <xsd:complexType>
+     *            <xsd:sequence>
+     *                <xsd:element name="atributo" maxOccurs="unbounded">
+     *                    <xsd:complexType>
+     *                        <xsd:sequence>
+     *                            <xsd:element name="id" type="xsd:positiveInteger"/>
+     *                            <xsd:element name="nombre" type="xsd:string"></xsd:element>
+     *                            <xsd:element name="valor" type="xsd:string"/>
+     *                        </xsd:sequence>
+     *                    </xsd:complexType>
+     *                </xsd:element>
+     *            </xsd:sequence>
+     *        </xsd:complexType>
+     *    </xsd:element>
+     * 
+     * El cual representa la lista de los atributos recuperados del mensaje. Luego esta información es aplicada al
+     * ,motor de configuración que determinará el comportamiento a seguir.
      */
     @WebMethod(operationName = "recuperaAtributos")
     @SuppressWarnings(value = "unchecked")
