@@ -33,7 +33,6 @@ import javax.xml.namespace.QName;
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPBodyElement;
-import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.transform.Source;
@@ -52,7 +51,7 @@ import org.st.Atributos.Atributo;
 public class DeterminaConfiguracionServicio {
 
 /**
-     * Web service operation
+     * Determina la configuración según los atributos recuperados del mensaje
      */
     @WebMethod(operationName = "determinaConfiguracion")
     @SuppressWarnings(value = "unchecked")
@@ -135,7 +134,7 @@ public class DeterminaConfiguracionServicio {
     }
 
 /**
-     * Web service operation
+     * Ejecuta dinámicamente el BPEL asociado a la configuración determinada
      */
     @WebMethod(operationName = "ejecutaBPELConfiguracion")
     public String ejecutaBPELConfiguracion(@WebParam(name = "codigo_servicio")
@@ -270,4 +269,209 @@ public class DeterminaConfiguracionServicio {
         return elResp.getValue();
     }
 
+/**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ejecutaWebServiceDinamico")
+    public String ejecutaWebServiceDinamico(@WebParam(name = "pNameSpaceURI")
+    String pNameSpaceURI, @WebParam(name = "pNombreServicio")
+    String pNombreServicio, @WebParam(name = "pNombrePuerto")
+    String pNombrePuerto, @WebParam(name = "pEndPoint")
+    String pEndPoint, @WebParam(name = "pMensaje")
+    String pMensaje) {
+
+        //TODO write your implementation code here:
+        /* declara e instancia las variables necesarias para el binding con el servicio BPEL */
+        QName nombreServicio = new QName(pNameSpaceURI, pNombreServicio);
+        QName nombrePuerto = new QName(pNameSpaceURI, pNombrePuerto);
+        String endpointAddress = pEndPoint;
+
+        /* crea el servicio */
+        Service servicioBPEL;
+        try {
+            servicioBPEL = Service.create(new URL(endpointAddress), nombreServicio);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "URL del endpoint mal formada: " + ex.getMessage(), ex);
+            return null;
+        } catch (WebServiceException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error crendo Servicio remoto : " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* agrega el puerto (operación) correspondiente al servicio BPEL */
+        //servicioBPEL.addPort(nombrePuerto, SOAPBinding.SOAP12HTTP_BINDING, endpointAddress);
+        /* crea una instancia para el despachante (llamador) del servicio BPEL */
+        Dispatch<SOAPMessage> despachante = servicioBPEL.createDispatch(nombrePuerto, SOAPMessage.class, Service.Mode.MESSAGE);
+        //BindingProvider bp = (BindingProvider) despachante;
+        //Map<String, Object> rc = bp.getRequestContext();
+        //rc.put(BindingProvider.SOAPACTION_USE_PROPERTY, Boolean.TRUE);
+       // rc.put(BindingProvider.SOAPACTION_URI_PROPERTY, "requerimiento");
+        //MessageFactory factory = ((SOAPBinding) bp.getBinding()).getMessageFactory();
+        
+        MessageFactory factory;
+        try {
+            factory = MessageFactory.newInstance();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando el MessageFactory: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* crea el requerimiento SOAP y toda la estructura SOAP requerida */
+        SOAPMessage requerimiento;
+        SOAPMessage respuesta = null;
+        SOAPBody body;
+        SOAPBodyElement elResp;
+        //SOAPElement payload;
+        //SOAPElement mensaje;
+        try {
+            requerimiento = factory.createMessage();
+            //body = requerimiento.getSOAPBody();
+            
+            /* compone al soap:body payload */
+            //payload = body.addBodyElement(new QName(configuracionServicio.getNameSpaceURI(),"Requerimiento","tem"));
+            //payload = body.addChildElement("requerimiento");
+            //mensaje = payload.addChildElement("mensaje");
+            //mensaje.addTextNode(p_mensaje);
+            String msg = "<soapenv:Envelope xsi:schemaLocation=\"http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/\" "
+                            + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
+                            + "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" "
+                            + "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
+                            + "xmlns:tem=\"http://xml.netbeans.org/schema/templateInvocaConfiguracion\"> "
+                            + "     <soapenv:Body>"
+                            + "         <tem:requerimiento>"
+                            + "             <tem:mensaje>" + pMensaje + "</tem:mensaje>"
+                            + "         </tem:requerimiento>"
+                            + "     </soapenv:Body>"
+                            + "</soapenv:Envelope>";
+
+          requerimiento.getSOAPPart().setContent((Source) new StreamSource(new StringReader(msg)));
+          requerimiento.saveChanges();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando requerimiento SOAP: " + ex.getMessage(), ex);
+            return null;
+        }
+        
+        /* Invoca la operación del BPEl en forma sincrónica */
+        try {
+            respuesta = despachante.invoke(requerimiento);
+        } catch (WebServiceException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error invocando el BPEL dinámico: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* procesa la respuesta del BPEL, decsendiendo dos niveles de elementos respuesta/return */
+        try {
+            body = respuesta.getSOAPBody();
+            elResp = (SOAPBodyElement) ((SOAPBodyElement) body.getChildElements().next()).getChildElements().next();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando requerimiento SOAP: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        return elResp.getValue();
+    }
+
+/**
+     * Web service operation
+     */
+    @WebMethod(operationName = "ejecutaSTDinamico")
+    public String ejecutaSTDinamico(@WebParam(name = "pCodigoServicio")
+    String pCodigoServicio,@WebParam(name = "pNameSpaceURI")
+    String pNameSpaceURI, @WebParam(name = "pNombreServicio")
+    String pNombreServicio, @WebParam(name = "pNombrePuerto")
+    String pNombrePuerto, @WebParam(name = "pEndPoint")
+    String pEndPoint, @WebParam(name = "pMensaje")
+    String pMensaje) {
+
+        //TODO write your implementation code here:
+        /* declara e instancia las variables necesarias para el binding con el servicio BPEL */
+        QName nombreServicio = new QName(pNameSpaceURI, pNombreServicio);
+        QName nombrePuerto = new QName(pNameSpaceURI, pNombrePuerto);
+        String endpointAddress = pEndPoint;
+
+        /* crea el servicio */
+        Service servicioBPEL;
+        try {
+            servicioBPEL = Service.create(new URL(endpointAddress), nombreServicio);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "URL del endpoint mal formada: " + ex.getMessage(), ex);
+            return null;
+        } catch (WebServiceException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error crendo Servicio remoto : " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* agrega el puerto (operación) correspondiente al servicio BPEL */
+        //servicioBPEL.addPort(nombrePuerto, SOAPBinding.SOAP12HTTP_BINDING, endpointAddress);
+        /* crea una instancia para el despachante (llamador) del servicio BPEL */
+        Dispatch<SOAPMessage> despachante = servicioBPEL.createDispatch(nombrePuerto, SOAPMessage.class, Service.Mode.MESSAGE);
+        //BindingProvider bp = (BindingProvider) despachante;
+        //Map<String, Object> rc = bp.getRequestContext();
+        //rc.put(BindingProvider.SOAPACTION_USE_PROPERTY, Boolean.TRUE);
+       // rc.put(BindingProvider.SOAPACTION_URI_PROPERTY, "requerimiento");
+        //MessageFactory factory = ((SOAPBinding) bp.getBinding()).getMessageFactory();
+        
+        MessageFactory factory;
+        try {
+            factory = MessageFactory.newInstance();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando el MessageFactory: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* crea el requerimiento SOAP y toda la estructura SOAP requerida */
+        SOAPMessage requerimiento;
+        SOAPMessage respuesta = null;
+        SOAPBody body;
+        SOAPBodyElement elResp;
+        //SOAPElement payload;
+        //SOAPElement mensaje;
+        try {
+            requerimiento = factory.createMessage();
+            //body = requerimiento.getSOAPBody();
+            
+            /* compone al soap:body payload */
+            //payload = body.addBodyElement(new QName(configuracionServicio.getNameSpaceURI(),"Requerimiento","tem"));
+            //payload = body.addChildElement("requerimiento");
+            //mensaje = payload.addChildElement("mensaje");
+            //mensaje.addTextNode(p_mensaje);
+            String msg = "<soapenv:Envelope xsi:schemaLocation=\"http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/\" "
+                            + "xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" "
+                            + "xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" "
+                            + "xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" "
+                            + "xmlns:st=\"http://xml.netbeans.org/schema/switchTransaccionalSincrónico\"> "
+                            + "     <soapenv:Body>"
+                            + "         <st:requerimiento>"
+                            +"              <st:codigo_servicio>"+ pCodigoServicio + "</st:codigo_servicio>"
+                            + "             <st:mensaje>" + pMensaje + "</st:mensaje>"
+                            + "         </st:requerimiento>"
+                            + "     </soapenv:Body>"
+                            + "</soapenv:Envelope>";
+
+          requerimiento.getSOAPPart().setContent((Source) new StreamSource(new StringReader(msg)));
+          requerimiento.saveChanges();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando requerimiento SOAP: " + ex.getMessage(), ex);
+            return null;
+        }
+        
+        /* Invoca la operación del BPEl en forma sincrónica */
+        try {
+            respuesta = despachante.invoke(requerimiento);
+        } catch (WebServiceException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error invocando el BPEL dinámico: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        /* procesa la respuesta del BPEL, decsendiendo dos niveles de elementos respuesta/return */
+        try {
+            body = respuesta.getSOAPBody();
+            elResp = (SOAPBodyElement) ((SOAPBodyElement) body.getChildElements().next()).getChildElements().next();
+        } catch (SOAPException ex) {
+            Logger.getLogger(DeterminaConfiguracionServicio.class.getName()).log(Level.SEVERE, "Error creando requerimiento SOAP: " + ex.getMessage(), ex);
+            return null;
+        }
+
+        return elResp.getValue();
+    }
 }
