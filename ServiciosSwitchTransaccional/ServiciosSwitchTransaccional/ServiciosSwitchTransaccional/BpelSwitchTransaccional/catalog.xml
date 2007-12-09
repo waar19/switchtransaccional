@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8081/RecuperaAtributosServicioService/RecuperaAtributosServicio?wsdl" uri="src/Partners/RecuperaAtributosServicioService/RecuperaAtributosServicio.wsdl"/>
+    <system systemId="http://localhost:8081/RecuperaAtributosServicioService/RecuperaAtributosServicio?xsd=1" uri="src/Partners/RecuperaAtributosServicioService/RecuperaAtributosServicio_xsd_1.xsd"/>
+    <system systemId="http://localhost:8081/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio?wsdl" uri="src/Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio.wsdl"/>
+    <system systemId="http://localhost:8081/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio?xsd=1" uri="src/Partners/DeterminaConfiguracionServicioService/DeterminaConfiguracionServicio_xsd_1.xsd"/>
+    <system systemId="http://localhost:8081/AdministraLogSwitchService/AdministraLogSwitch?wsdl" uri="src/Partners/AdministraLogSwitch/AdministraLogSwitch.wsdl"/>
+    <system systemId="http://localhost:8081/AdministraLogSwitchService/AdministraLogSwitch?xsd=1" uri="src/Partners/AdministraLogSwitch/AdministraLogSwitch_xsd_1.xsd"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BluePrint5/BluePrint5/src/AirLineReservation.wsdl" uri="src/Partners/AirLineReservation/AirLineReservation.wsdl"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BluePrint5/BluePrint5/src/reservation.xsd" uri="src/Partners/AirLineReservation/reservation.xsd"/>
+    <system systemId="file:/home/demian/netbean.workspace/SwitchTransaccional/BluePrint5/BluePrint5/src/Reservation.wsdl" uri="src/Partners/AirLineReservation/Reservation.wsdl"/>
+</catalog>

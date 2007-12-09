@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://xml.netbeans.org/schema/switchTransaccionalSincrónico"
+            xmlns:tns="http://xml.netbeans.org/schema/switchTransaccionalSincrónico"
+            elementFormDefault="qualified">
+    <xsd:complexType name="Requerimiento">
+        <xsd:sequence>
+            <xsd:element name="codigo_servicio" type="xsd:string"/>
+            <xsd:element name="mensaje" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="Respuesta">
+        <xsd:sequence>
+            <xsd:element name="return" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:element name="requerimiento" type="tns:Requerimiento"/>
+    <xsd:element name="respuesta" type="tns:Respuesta"/>
+</xsd:schema>

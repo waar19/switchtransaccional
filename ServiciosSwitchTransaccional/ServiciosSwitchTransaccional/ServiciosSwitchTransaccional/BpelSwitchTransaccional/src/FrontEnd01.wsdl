@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="FrontEnd01" targetNamespace="http://j2ee.netbeans.org/wsdl/FrontEnd01"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns="http://xml.netbeans.org/schema/FrontEnd01" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://j2ee.netbeans.org/wsdl/FrontEnd01">
+    <types>
+        <xsd:schema targetNamespace="http://j2ee.netbeans.org/wsdl/FrontEnd01">
+            <xsd:import namespace="http://xml.netbeans.org/schema/FrontEnd01" schemaLocation="FrontEnd01.xsd"/>
+        </xsd:schema>
+    </types>
+    <message name="FrontEnd01OperationRequest">
+        <part name="requerimiento" element="ns:requerimiento"/>
+    </message>
+    <message name="FrontEnd01OperationReply">
+        <part name="respuesta" element="ns:respuesta"/>
+    </message>
+    <message name="FrontEnd01OperationFault">
+        <part name="status" type="xsd:string"/>
+    </message>
+    <portType name="FrontEnd01PortType">
+        <operation name="FrontEnd01Operation">
+            <input name="input1" message="tns:FrontEnd01OperationRequest"/>
+            <output name="output1" message="tns:FrontEnd01OperationReply"/>
+            <fault name="fault1" message="tns:FrontEnd01OperationFault"/>
+        </operation>
+    </portType>
+    <binding name="FrontEnd01Binding" type="tns:FrontEnd01PortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="FrontEnd01Operation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault use="literal" name="fault1"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="FrontEnd01Service">
+        <port name="FrontEnd01Port" binding="tns:FrontEnd01Binding">
+            <soap:address location="http://localhost:18181/FrontEnd01Service/FrontEnd01Port"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="FrontEnd011">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="FrontEnd01PortTypeRole" portType="tns:FrontEnd01PortType"/>
+    </plnk:partnerLinkType>
+</definitions>
